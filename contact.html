@@ -18,7 +18,7 @@
         textarea { min-height: 140px; resize: vertical; }
         .contact-info h3 { font-size: 32px; margin-bottom: 32px; color: var(--navy); }
         .info-item { display: flex; gap: 16px; margin-bottom: 28px; padding: 20px; background: linear-gradient(135deg, rgba(29,74,44,0.04) 0%, rgba(14,46,89,0.04) 100%); border-radius: 12px; transition: all 0.3s; border: 1px solid transparent; }
-        .info-item:hover { transform: translateX(4px); border-color: rgba(212,167,58,0.3); }
+        .info-item:hover { transform: translateY(-2px); border-color: rgba(212,167,58,0.3); }
         .info-icon { width: 52px; height: 52px; background: linear-gradient(135deg, var(--green) 0%, var(--navy) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 22px; flex-shrink: 0; }
         .info-text h4 { font-size: 17px; margin-bottom: 4px; color: var(--navy); }
         .info-text p, .info-text a { color: #6b7280; text-decoration: none; font-size: 15px; line-height: 1.5; }
@@ -28,7 +28,8 @@
         .business-hours-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .business-hours-row:last-child { border-bottom: none; }
         .map-placeholder { width: 100%; height: 320px; background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); border-radius: 16px; margin-top: 32px; display: flex; align-items: center; justify-content: center; border: 2px dashed var(--gold); color: var(--navy); font-weight: 600; flex-direction: column; gap: 8px; }
-        .cta-banner { background: linear-gradient(135deg, var(--green) 0%, var(--navy) 100%); border-radius: 20px; padding: 48px; color: #fff; position: relative; overflow: hidden; margin-top: 48px; }
+        .cta-banner { background: linear-gradient(135deg, var(--green) 0%, var(--navy) 100%); border-radius: 20px; padding: 32px 20px; color: #fff; position: relative; overflow: hidden; margin-top: 48px; }
+        @media (min-width: 768px) { .cta-banner { padding: 48px; } }
         .cta-banner::before { content: ''; position: absolute; right: -100px; bottom: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(212,167,58,0.15) 0%, transparent 70%); }
         .cta-content { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 32px; align-items: center; text-align: center; }
         @media (min-width: 768px) { .cta-content { flex-direction: row; justify-content: space-between; text-align: left; } }
@@ -64,8 +65,9 @@
             <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
                 <div class="hamburger"><span></span><span></span><span></span></div>
             </button>
-            <div class="nav-wrap" aria-hidden="true"></div>
-            <nav id="primary-nav">
+            <div class="mobile-nav-root">
+                <div class="nav-wrap" aria-hidden="true"></div>
+                <nav id="primary-nav">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
@@ -74,6 +76,7 @@
                 <a href="careers.html">Careers</a>
                 <a href="contact.html" class="active cta-btn">GET A QUOTE →</a>
             </nav>
+            </div>
         </div>
     </header>
 
@@ -255,11 +258,13 @@
       var btn=document.querySelector('.nav-toggle');
       var wrap=document.querySelector('.nav-wrap');
       var nav=document.getElementById('primary-nav');
+      var root=document.querySelector('.mobile-nav-root');
       if(!btn||!nav)return;
-      function close(){btn.setAttribute('aria-expanded','false');wrap.classList.remove('open');nav.classList.remove('open');wrap.setAttribute('aria-hidden','true');document.body.style.overflow='';}
-      function open(){btn.setAttribute('aria-expanded','true');wrap.classList.add('open');nav.classList.add('open');wrap.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+      function setScrollLock(on){document.documentElement.style.overflow=on?'hidden':'';document.body.style.overflow=on?'hidden':'';}
+      function close(){btn.setAttribute('aria-expanded','false');if(wrap){wrap.classList.remove('open');wrap.setAttribute('aria-hidden','true');}nav.classList.remove('open');if(root)root.classList.remove('open');setScrollLock(false);}
+      function open(){btn.setAttribute('aria-expanded','true');if(wrap){wrap.classList.add('open');wrap.setAttribute('aria-hidden','false');}nav.classList.add('open');if(root)root.classList.add('open');setScrollLock(true);}
       btn.addEventListener('click',function(){var e=btn.getAttribute('aria-expanded')==='true';if(e)close();else open();});
-      wrap.addEventListener('click',close);
+      if(wrap)wrap.addEventListener('click',close);
       nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(nav.classList.contains('open'))close();});});
       document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open'))close();});
       var mq=window.matchMedia('(min-width: 960px)');

@@ -24,13 +24,16 @@
         .news-link:hover { color: var(--gold); gap: 10px; }
         .load-more { text-align: center; margin-top: 56px; }
         .newsletter-section-alt { background: linear-gradient(180deg, #fafaf7 0%, #fff 100%); }
-        .newsletter-box { max-width: 700px; margin: 0 auto; text-align: center; padding: 48px; background: linear-gradient(135deg, var(--green), var(--navy)); border-radius: 20px; color: #fff; position: relative; overflow: hidden; }
+        .newsletter-box { max-width: 700px; margin: 0 auto; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, var(--green), var(--navy)); border-radius: 20px; color: #fff; position: relative; overflow: hidden; }
+        @media (min-width: 640px) { .newsletter-box { padding: 48px; } }
         .newsletter-box::before { content: ''; position: absolute; right: -100px; top: -100px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(212,167,58,0.2), transparent); }
         .newsletter-content { position: relative; z-index: 1; }
-        .newsletter-content h3 { font-size: 28px; margin-bottom: 12px; }
+        .newsletter-content h3 { font-size: 24px; margin-bottom: 12px; }
+        @media (min-width: 640px) { .newsletter-content h3 { font-size: 28px; } }
         .newsletter-content p { opacity: 0.9; margin-bottom: 28px; }
-        .newsletter-form { display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
-        .newsletter-form input { flex: 1; min-width: 250px; padding: 14px 20px; border-radius: 10px; border: none; font-size: 15px; }
+        .newsletter-form { display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap; justify-content: center; width: 100%; }
+        .newsletter-form input { flex: 1 1 100%; min-width: 0; width: 100%; padding: 14px 20px; border-radius: 10px; border: none; font-size: 15px; }
+        @media (min-width: 480px) { .newsletter-form input { flex: 1 1 auto; width: auto; } }
         .newsletter-form input:focus { outline: none; box-shadow: 0 0 0 3px rgba(212,167,58,0.5); }
     </style>
 </head>
@@ -47,8 +50,9 @@
             <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
                 <div class="hamburger"><span></span><span></span><span></span></div>
             </button>
-            <div class="nav-wrap" aria-hidden="true"></div>
-            <nav id="primary-nav">
+            <div class="mobile-nav-root">
+                <div class="nav-wrap" aria-hidden="true"></div>
+                <nav id="primary-nav">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
@@ -57,6 +61,7 @@
                 <a href="careers.html">Careers</a>
                 <a href="contact.html" class="cta-btn">GET A QUOTE →</a>
             </nav>
+            </div>
         </div>
     </header>
 
@@ -232,11 +237,13 @@
       var btn=document.querySelector('.nav-toggle');
       var wrap=document.querySelector('.nav-wrap');
       var nav=document.getElementById('primary-nav');
+      var root=document.querySelector('.mobile-nav-root');
       if(!btn||!nav)return;
-      function close(){btn.setAttribute('aria-expanded','false');wrap.classList.remove('open');nav.classList.remove('open');wrap.setAttribute('aria-hidden','true');document.body.style.overflow='';}
-      function open(){btn.setAttribute('aria-expanded','true');wrap.classList.add('open');nav.classList.add('open');wrap.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+      function setScrollLock(on){document.documentElement.style.overflow=on?'hidden':'';document.body.style.overflow=on?'hidden':'';}
+      function close(){btn.setAttribute('aria-expanded','false');if(wrap){wrap.classList.remove('open');wrap.setAttribute('aria-hidden','true');}nav.classList.remove('open');if(root)root.classList.remove('open');setScrollLock(false);}
+      function open(){btn.setAttribute('aria-expanded','true');if(wrap){wrap.classList.add('open');wrap.setAttribute('aria-hidden','false');}nav.classList.add('open');if(root)root.classList.add('open');setScrollLock(true);}
       btn.addEventListener('click',function(){var e=btn.getAttribute('aria-expanded')==='true';if(e)close();else open();});
-      wrap.addEventListener('click',close);
+      if(wrap)wrap.addEventListener('click',close);
       nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(nav.classList.contains('open'))close();});});
       document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open'))close();});
       var mq=window.matchMedia('(min-width: 960px)');

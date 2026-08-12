@@ -6,9 +6,12 @@
     <title>Careers - AEP Group</title>
     <link rel="stylesheet" href="css/styles.css">
     <style>
-        .why-work { max-width: 800px; margin: 0 auto 64px; text-align: center; }
-        .why-work h3 { font-size: 36px; margin-bottom: 16px; color: var(--navy); }
-        .why-work p { color: #6b7280; line-height: 1.8; font-size: 17px; }
+        .why-work { max-width: 800px; margin: 0 auto 48px; text-align: center; }
+        @media (min-width: 768px) { .why-work { margin-bottom: 64px; } }
+        .why-work h3 { font-size: 28px; margin-bottom: 16px; color: var(--navy); }
+        @media (min-width: 768px) { .why-work h3 { font-size: 36px; } }
+        .why-work p { color: #6b7280; line-height: 1.8; font-size: 16px; }
+        @media (min-width: 768px) { .why-work p { font-size: 17px; } }
         .benefits-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 80px; }
         @media (min-width: 768px) { .benefits-grid { grid-template-columns: 1fr 1fr 1fr; } }
         .benefit-card { text-align: center; padding: 32px 24px; border: 1px solid #e5e7eb; border-radius: 16px; transition: all 0.3s; background: #fff; }
@@ -17,16 +20,23 @@
         .benefit-card h4 { font-size: 22px; margin-bottom: 12px; color: var(--navy); }
         .benefit-card p { color: #6b7280; line-height: 1.6; }
         .jobs-list { max-width: 1000px; margin: 0 auto; }
-        .job-card { border: 1px solid #e5e7eb; border-radius: 16px; padding: 28px 32px; margin-bottom: 16px; transition: all 0.3s; background: #fff; display: flex; flex-direction: column; gap: 20px; }
-        .job-card:hover { transform: translateX(6px); border-color: var(--gold); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+        .job-card { border: 1px solid #e5e7eb; border-radius: 16px; padding: 22px 18px; margin-bottom: 16px; transition: all 0.3s; background: #fff; display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+        @media (min-width: 480px) { .job-card { padding: 28px 32px; } }
+        .job-card:hover { transform: translateY(-2px); border-color: var(--gold); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
         @media (min-width: 768px) {
             .job-card { flex-direction: row; justify-content: space-between; align-items: center; }
         }
-        .job-info h4 { font-size: 22px; margin-bottom: 10px; color: var(--navy); }
+        .job-info { min-width: 0; }
+        .job-info h4 { font-size: 20px; margin-bottom: 10px; color: var(--navy); }
+        @media (min-width: 768px) { .job-info h4 { font-size: 22px; } }
         .job-meta { display: flex; gap: 16px; color: #6b7280; font-size: 14px; flex-wrap: wrap; }
         .job-meta span { display: inline-flex; align-items: center; gap: 4px; }
-        .job-apply { white-space: nowrap; }
-        .cta-section { text-align: center; margin-top: 64px; padding: 48px; background: linear-gradient(135deg, var(--green) 0%, var(--navy) 100%); border-radius: 20px; color: #fff; position: relative; overflow: hidden; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .job-apply { width: 100%; }
+        @media (min-width: 480px) { .job-apply { width: auto; white-space: nowrap; } }
+        .job-apply .btn { width: 100%; }
+        @media (min-width: 480px) { .job-apply .btn { width: auto; } }
+        .cta-section { text-align: center; margin-top: 48px; padding: 32px 20px; background: linear-gradient(135deg, var(--green) 0%, var(--navy) 100%); border-radius: 20px; color: #fff; position: relative; overflow: hidden; max-width: 900px; margin-left: auto; margin-right: auto; }
+        @media (min-width: 768px) { .cta-section { margin-top: 64px; padding: 48px; } }
         .cta-section::before { content: ''; position: absolute; right: -80px; top: -80px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(212,167,58,0.15), transparent); }
         .cta-content { position: relative; z-index: 1; }
         .cta-section p { color: #c7d2e4; margin-bottom: 20px; font-size: 16px; }
@@ -45,8 +55,9 @@
             <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
                 <div class="hamburger"><span></span><span></span><span></span></div>
             </button>
-            <div class="nav-wrap" aria-hidden="true"></div>
-            <nav id="primary-nav">
+            <div class="mobile-nav-root">
+                <div class="nav-wrap" aria-hidden="true"></div>
+                <nav id="primary-nav">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
@@ -55,6 +66,7 @@
                 <a href="careers.html" class="active">Careers</a>
                 <a href="contact.html" class="cta-btn">GET A QUOTE →</a>
             </nav>
+            </div>
         </div>
     </header>
 
@@ -215,11 +227,13 @@
       var btn=document.querySelector('.nav-toggle');
       var wrap=document.querySelector('.nav-wrap');
       var nav=document.getElementById('primary-nav');
+      var root=document.querySelector('.mobile-nav-root');
       if(!btn||!nav)return;
-      function close(){btn.setAttribute('aria-expanded','false');wrap.classList.remove('open');nav.classList.remove('open');wrap.setAttribute('aria-hidden','true');document.body.style.overflow='';}
-      function open(){btn.setAttribute('aria-expanded','true');wrap.classList.add('open');nav.classList.add('open');wrap.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+      function setScrollLock(on){document.documentElement.style.overflow=on?'hidden':'';document.body.style.overflow=on?'hidden':'';}
+      function close(){btn.setAttribute('aria-expanded','false');if(wrap){wrap.classList.remove('open');wrap.setAttribute('aria-hidden','true');}nav.classList.remove('open');if(root)root.classList.remove('open');setScrollLock(false);}
+      function open(){btn.setAttribute('aria-expanded','true');if(wrap){wrap.classList.add('open');wrap.setAttribute('aria-hidden','false');}nav.classList.add('open');if(root)root.classList.add('open');setScrollLock(true);}
       btn.addEventListener('click',function(){var e=btn.getAttribute('aria-expanded')==='true';if(e)close();else open();});
-      wrap.addEventListener('click',close);
+      if(wrap)wrap.addEventListener('click',close);
       nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(nav.classList.contains('open'))close();});});
       document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open'))close();});
       var mq=window.matchMedia('(min-width: 960px)');

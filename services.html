@@ -44,8 +44,9 @@
             <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
                 <div class="hamburger"><span></span><span></span><span></span></div>
             </button>
-            <div class="nav-wrap" aria-hidden="true"></div>
-            <nav id="primary-nav">
+            <div class="mobile-nav-root">
+                <div class="nav-wrap" aria-hidden="true"></div>
+                <nav id="primary-nav">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="services.html" class="active">Services</a>
@@ -54,6 +55,7 @@
                 <a href="careers.html">Careers</a>
                 <a href="contact.html" class="cta-btn">GET A QUOTE →</a>
             </nav>
+            </div>
         </div>
     </header>
 
@@ -284,11 +286,13 @@
       var btn=document.querySelector('.nav-toggle');
       var wrap=document.querySelector('.nav-wrap');
       var nav=document.getElementById('primary-nav');
+      var root=document.querySelector('.mobile-nav-root');
       if(!btn||!nav)return;
-      function close(){btn.setAttribute('aria-expanded','false');wrap.classList.remove('open');nav.classList.remove('open');wrap.setAttribute('aria-hidden','true');document.body.style.overflow='';}
-      function open(){btn.setAttribute('aria-expanded','true');wrap.classList.add('open');nav.classList.add('open');wrap.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+      function setScrollLock(on){document.documentElement.style.overflow=on?'hidden':'';document.body.style.overflow=on?'hidden':'';}
+      function close(){btn.setAttribute('aria-expanded','false');if(wrap){wrap.classList.remove('open');wrap.setAttribute('aria-hidden','true');}nav.classList.remove('open');if(root)root.classList.remove('open');setScrollLock(false);}
+      function open(){btn.setAttribute('aria-expanded','true');if(wrap){wrap.classList.add('open');wrap.setAttribute('aria-hidden','false');}nav.classList.add('open');if(root)root.classList.add('open');setScrollLock(true);}
       btn.addEventListener('click',function(){var e=btn.getAttribute('aria-expanded')==='true';if(e)close();else open();});
-      wrap.addEventListener('click',close);
+      if(wrap)wrap.addEventListener('click',close);
       nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(nav.classList.contains('open'))close();});});
       document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open'))close();});
       var mq=window.matchMedia('(min-width: 960px)');

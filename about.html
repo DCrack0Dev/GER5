@@ -9,10 +9,12 @@
         .about-content { display: flex; flex-direction: column; gap: 48px; align-items: center; }
         @media (min-width: 768px) { .about-content { flex-direction: row; } }
         .about-text { flex: 1; }
-        .about-text h3 { font-size: 36px; margin-bottom: 24px; color: var(--navy); }
+        .about-text h3 { font-size: 28px; margin-bottom: 24px; color: var(--navy); }
+        @media (min-width: 768px) { .about-text h3 { font-size: 36px; } }
         .about-text p { color: #6b7280; margin-bottom: 16px; line-height: 1.8; }
-        .about-image { flex: 1; }
-        .about-image-placeholder img { width: 100%; height: 450px; display: block; object-fit: cover; object-position: center 30%; border-radius: 16px; box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
+        .about-image { flex: 1; min-width: 0; width: 100%; }
+        .about-image-placeholder img { width: 100%; height: 280px; display: block; object-fit: cover; object-position: center 30%; border-radius: 16px; box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
+        @media (min-width: 768px) { .about-image-placeholder img { height: 450px; } }
         .values-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
         @media (min-width: 768px) { .values-grid { grid-template-columns: 1fr 1fr 1fr 1fr; } }
         .value-card { text-align: center; padding: 32px 24px; background: #fff; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 1px solid transparent; transition: all 0.3s; }
@@ -22,9 +24,11 @@
         .value-card p { color: #6b7280; line-height: 1.6; }
         .divisions-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
         @media (min-width: 768px) { .divisions-grid { grid-template-columns: 1fr 1fr; } }
-        .division-card { padding: 40px; border: 1px solid #e5e7eb; border-radius: 16px; transition: all 0.3s; background: #fff; }
+        .division-card { padding: 24px 20px; border: 1px solid #e5e7eb; border-radius: 16px; transition: all 0.3s; background: #fff; }
+        @media (min-width: 640px) { .division-card { padding: 40px; } }
         .division-card:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.08); border-color: var(--gold); }
-        .division-card h4 { font-size: 26px; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; color: var(--navy); }
+        .division-card h4 { font-size: 22px; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; color: var(--navy); }
+        @media (min-width: 768px) { .division-card h4 { font-size: 26px; } }
         .division-card h4::before { content: ''; width: 6px; height: 40px; background: linear-gradient(to bottom, var(--gold), var(--green)); border-radius: 3px; }
         .division-card p { color: #6b7280; line-height: 1.8; }
     </style>
@@ -42,8 +46,9 @@
             <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
                 <div class="hamburger"><span></span><span></span><span></span></div>
             </button>
-            <div class="nav-wrap" aria-hidden="true"></div>
-            <nav id="primary-nav">
+            <div class="mobile-nav-root">
+                <div class="nav-wrap" aria-hidden="true"></div>
+                <nav id="primary-nav">
                 <a href="index.html">Home</a>
                 <a href="about.html" class="active">About</a>
                 <a href="services.html">Services</a>
@@ -52,6 +57,7 @@
                 <a href="careers.html">Careers</a>
                 <a href="contact.html">Contact</a>
             </nav>
+            </div>
         </div>
     </header>
 
@@ -182,11 +188,13 @@
       var btn=document.querySelector('.nav-toggle');
       var wrap=document.querySelector('.nav-wrap');
       var nav=document.getElementById('primary-nav');
+      var root=document.querySelector('.mobile-nav-root');
       if(!btn||!nav)return;
-      function close(){btn.setAttribute('aria-expanded','false');wrap.classList.remove('open');nav.classList.remove('open');wrap.setAttribute('aria-hidden','true');document.body.style.overflow='';}
-      function open(){btn.setAttribute('aria-expanded','true');wrap.classList.add('open');nav.classList.add('open');wrap.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+      function setScrollLock(on){document.documentElement.style.overflow=on?'hidden':'';document.body.style.overflow=on?'hidden':'';}
+      function close(){btn.setAttribute('aria-expanded','false');if(wrap){wrap.classList.remove('open');wrap.setAttribute('aria-hidden','true');}nav.classList.remove('open');if(root)root.classList.remove('open');setScrollLock(false);}
+      function open(){btn.setAttribute('aria-expanded','true');if(wrap){wrap.classList.add('open');wrap.setAttribute('aria-hidden','false');}nav.classList.add('open');if(root)root.classList.add('open');setScrollLock(true);}
       btn.addEventListener('click',function(){var e=btn.getAttribute('aria-expanded')==='true';if(e)close();else open();});
-      wrap.addEventListener('click',close);
+      if(wrap)wrap.addEventListener('click',close);
       nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(nav.classList.contains('open'))close();});});
       document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open'))close();});
       var mq=window.matchMedia('(min-width: 960px)');

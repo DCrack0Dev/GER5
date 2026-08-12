@@ -119,14 +119,14 @@ header {
     justify-content: center;
     width: 44px;
     height: 44px;
-    background: transparent;
+    background: #fff;
     border: 1px solid var(--border);
     border-radius: 10px;
     cursor: pointer;
     flex-shrink: 0;
     transition: all 0.2s;
     position: relative;
-    z-index: 210;
+    z-index: 1101;
 }
 .nav-toggle:hover, .nav-toggle:focus-visible {
     background: var(--navy-50);
@@ -169,11 +169,14 @@ header {
     .nav-toggle { display: none; }
 }
 
-/* Mobile nav shell — clips off-canvas drawer so it cannot widen the page */
+/* Mobile nav shell — fully hidden until opened; clips drawer to the viewport */
 .mobile-nav-root {
     display: contents;
 }
 @media (max-width: 959.98px) {
+    body.nav-open header {
+        z-index: 1102;
+    }
     .mobile-nav-root {
         display: block;
         position: fixed;
@@ -183,29 +186,31 @@ header {
         height: 100dvh;
         overflow: hidden;
         pointer-events: none;
-        z-index: 200;
+        visibility: hidden;
+        z-index: 1100;
     }
-    .mobile-nav-root.open { pointer-events: auto; }
+    .mobile-nav-root.open {
+        pointer-events: auto;
+        visibility: visible;
+    }
 }
 
 /* Nav */
 .nav-wrap {
     position: fixed;
     inset: 0;
-    top: 0;
     background: rgba(14, 46, 89, 0.5);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.25s ease, visibility 0.25s ease;
-    z-index: 99;
+    z-index: 1;
     pointer-events: none;
 }
 @media (max-width: 959.98px) {
     .nav-wrap {
         position: absolute;
-        z-index: 1;
     }
 }
 .nav-wrap.open {
@@ -231,14 +236,14 @@ nav {
     padding: 96px 24px 32px;
     overflow-x: hidden;
     overflow-y: auto;
-    z-index: 100;
+    z-index: 2;
     pointer-events: none;
+    visibility: hidden;
     -webkit-overflow-scrolling: touch;
 }
 @media (max-width: 959.98px) {
     nav {
         position: absolute;
-        z-index: 2;
     }
 }
 .mobile-nav-root.open nav,
@@ -246,6 +251,7 @@ nav {
 nav.open {
     transform: translateX(0);
     pointer-events: auto;
+    visibility: visible;
 }
 
 nav a {
@@ -318,6 +324,7 @@ nav .cta-btn:hover {
         background: transparent;
         overflow: visible;
         pointer-events: auto;
+        visibility: visible;
     }
     nav a {
         padding: 8px 14px;

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - AEP Group</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .why-work { max-width: 800px; margin: 0 auto 64px; text-align: center; }
+        .why-work h3 { font-size: 36px; margin-bottom: 16px; color: var(--navy); }
+        .why-work p { color: #6b7280; line-height: 1.8; font-size: 17px; }
+        .benefits-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 80px; }
+        @media (min-width: 768px) { .benefits-grid { grid-template-columns: 1fr 1fr 1fr; } }
+        .benefit-card { text-align: center; padding: 32px 24px; border: 1px solid #e5e7eb; border-radius: 16px; transition: all 0.3s; background: #fff; }
+        .benefit-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: var(--gold); }
+        .benefit-icon { width: 80px; height: 80px; background: linear-gradient(135deg, var(--green) 0%, var(--navy) 100%); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 36px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+        .benefit-card h4 { font-size: 22px; margin-bottom: 12px; color: var(--navy); }
+        .benefit-card p { color: #6b7280; line-height: 1.6; }
+        .jobs-list { max-width: 1000px; margin: 0 auto; }
+        .job-card { border: 1px solid #e5e7eb; border-radius: 16px; padding: 28px 32px; margin-bottom: 16px; transition: all 0.3s; background: #fff; display: flex; flex-direction: column; gap: 20px; }
+        .job-card:hover { transform: translateX(6px); border-color: var(--gold); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+        @media (min-width: 768px) {
+            .job-card { flex-direction: row; justify-content: space-between; align-items: center; }
+        }
+        .job-info h4 { font-size: 22px; margin-bottom: 10px; color: var(--navy); }
+        .job-meta { display: flex; gap: 16px; color: #6b7280; font-size: 14px; flex-wrap: wrap; }
+        .job-meta span { display: inline-flex; align-items: center; gap: 4px; }
+        .job-apply { white-space: nowrap; }
+        .cta-section { text-align: center; margin-top: 64px; padding: 48px; background: linear-gradient(135deg, var(--green) 0%, var(--navy) 100%); border-radius: 20px; color: #fff; position: relative; overflow: hidden; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .cta-section::before { content: ''; position: absolute; right: -80px; top: -80px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(212,167,58,0.15), transparent); }
+        .cta-content { position: relative; z-index: 1; }
+        .cta-section p { color: #c7d2e4; margin-bottom: 20px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo-section">
+                <a href="index.html"><img src="images/logo.png" alt="AEP Group Logo" onerror="this.style.display='none'"></a>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="industries.html">Industries</a>
+                <a href="news.html">News</a>
+                <a href="careers.html">Careers</a>
+                <a href="contact.html" class="cta-btn">GET A QUOTE →</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <p class="page-header-tag">Join Our Team</p>
+            <h2>Careers at AEP Group</h2>
+            <p>Join our team and build a future with us</p>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="why-work">
+                <p class="section-tag">Why Work With Us</p>
+                <h3>Build Your Career With AEP Group</h3>
+                <p>[PLACEHOLDER: Describe your company culture, values, benefits, and why people should join your team. Talk about growth opportunities, work environment, team dynamics, etc.]</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h4>Growth Opportunities</h4>
+                    <p>[PLACEHOLDER: Describe career growth, training programs, mentorship, and advancement opportunities at AEP Group.]</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚖️</div>
+                    <h4>Work-Life Balance</h4>
+                    <p>[PLACEHOLDER: Describe work-life balance policies, flexible hours, leave benefits, wellness programs, etc.]</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💎</div>
+                    <h4>Competitive Benefits</h4>
+                    <p>[PLACEHOLDER: Describe compensation package, medical aid, retirement benefits, bonuses, and other perks.]</p>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <p class="section-tag">Join Our Team</p>
+                <h3 class="section-title">Current Openings</h3>
+            </div>
+
+            <div class="jobs-list">
+                <div class="job-card">
+                    <div class="job-info">
+                        <h4>[PLACEHOLDER: Job Title #1]</h4>
+                        <div class="job-meta">
+                            <span>🏢 [PLACEHOLDER: Department - e.g. Agriculture]</span>
+                            <span>📍 [PLACEHOLDER: Location]</span>
+                            <span>⏰ [PLACEHOLDER: Full-time / Part-time]</span>
+                        </div>
+                    </div>
+                    <div class="job-apply">
+                        <a href="contact.html" class="btn btn-primary">Apply Now →</a>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-info">
+                        <h4>[PLACEHOLDER: Job Title #2]</h4>
+                        <div class="job-meta">
+                            <span>🏢 [PLACEHOLDER: Department - e.g. Logistics]</span>
+                            <span>📍 [PLACEHOLDER: Location]</span>
+                            <span>⏰ [PLACEHOLDER: Full-time / Part-time]</span>
+                        </div>
+                    </div>
+                    <div class="job-apply">
+                        <a href="contact.html" class="btn btn-primary">Apply Now →</a>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-info">
+                        <h4>[PLACEHOLDER: Job Title #3]</h4>
+                        <div class="job-meta">
+                            <span>🏢 [PLACEHOLDER: Department]</span>
+                            <span>📍 [PLACEHOLDER: Location]</span>
+                            <span>⏰ [PLACEHOLDER: Full-time / Part-time]</span>
+                        </div>
+                    </div>
+                    <div class="job-apply">
+                        <a href="contact.html" class="btn btn-primary">Apply Now →</a>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-info">
+                        <h4>[PLACEHOLDER: Job Title #4]</h4>
+                        <div class="job-meta">
+                            <span>🏢 [PLACEHOLDER: Department]</span>
+                            <span>📍 [PLACEHOLDER: Location]</span>
+                            <span>⏰ [PLACEHOLDER: Full-time / Part-time]</span>
+                        </div>
+                    </div>
+                    <div class="job-apply">
+                        <a href="contact.html" class="btn btn-primary">Apply Now →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <div class="cta-content">
+                    <h3 class="section-title" style="color: #fff; margin-bottom: 12px;">Don't See a Role That Fits?</h3>
+                    <p>We're always looking for talented people to join our team. Send us your resume and we'll keep you in mind for future opportunities!</p>
+                    <a href="contact.html" class="btn btn-primary" style="margin-top: 12px;">📄 Submit Your Resume</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="AEP Group Logo" onerror="this.style.display='none'">
+                    </div>
+                    <p>A diversified holding company uniting agriculture and logistics to build a stronger, more sustainable future.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">X</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>📧 Agrieconomicpartners@gmail.com</p>
+                    <p>📞 065 810 1567</p>
+                    <p>📍 [PLACEHOLDER: Physical Address]</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="services.html">Services</a>
+                    <a href="industries.html">Industries</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Divisions</h4>
+                    <a href="services.html">🌱 Agriculture</a>
+                    <a href="services.html">🚚 Logistics</a>
+                    <a href="careers.html">Careers</a>
+                    <a href="news.html">News</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 AEP Group Holding Company. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

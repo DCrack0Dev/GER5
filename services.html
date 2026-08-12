@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - AEP Group</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .divisions-section { margin-bottom: 80px; }
+        .divisions-title { font-size: 32px; color: var(--navy); margin-bottom: 8px; }
+        .divisions-tag { color: var(--gold); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 13px; margin-bottom: 48px; }
+        .services-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+        @media (min-width: 768px) { .services-grid { grid-template-columns: 1fr 1fr; } }
+        .service-card { border: 1px solid #e5e7eb; border-radius: 16px; overflow: hidden; transition: all 0.3s; background: #fff; }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: var(--gold); }
+        .service-image { height: 240px; overflow: hidden; background: #f3f4f6; }
+        .service-image img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.35s ease; }
+        .service-card:hover .service-image img { transform: scale(1.03); }
+        .service-content { padding: 32px; }
+        .service-content h4 { font-size: 22px; margin-bottom: 12px; color: var(--navy); }
+        .service-content p { color: #6b7280; line-height: 1.7; margin-bottom: 20px; }
+        .service-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .service-tag { padding: 6px 14px; background: linear-gradient(135deg, rgba(212,167,58,0.1) 0%, rgba(29,74,44,0.1) 100%); color: var(--navy); border-radius: 20px; font-size: 13px; font-weight: 500; }
+        .stats-section { background: linear-gradient(135deg, var(--green) 0%, var(--navy) 100%); color: #fff; position: relative; overflow: hidden; }
+        .stats-section::before { content: ''; position: absolute; inset: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,50 Q25,0 50,50 T100,50" stroke="white" stroke-width="0.5" fill="none" opacity="0.05"/></svg>'); }
+        .stats-grid { display: grid; grid-template-columns: 1fr; gap: 48px; position: relative; z-index: 1; }
+        @media (min-width: 768px) { .stats-grid { grid-template-columns: 1fr 1fr 1fr 1fr; } }
+        .stat-item { text-align: center; }
+        .stat-number { font-size: 56px; font-weight: 800; color: var(--gold); margin-bottom: 8px; line-height: 1; }
+        .stat-label { font-size: 15px; opacity: 0.9; margin-bottom: 8px; font-weight: 600; letter-spacing: 0.5px; }
+        .stat-desc { font-size: 14px; opacity: 0.75; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo-section">
+                <a href="index.html"><img src="images/logo.png" alt="AEP Group Logo" onerror="this.style.display='none'"></a>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="industries.html">Industries</a>
+                <a href="news.html">News</a>
+                <a href="careers.html">Careers</a>
+                <a href="contact.html" class="cta-btn">GET A QUOTE →</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <p class="page-header-tag">What We Offer</p>
+            <h2>Our Services</h2>
+            <p>Comprehensive solutions for agriculture and logistics</p>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag">We Supply</p>
+                <h3 class="section-title">Fresh. Nutritious. Reliable.</h3>
+                <p class="section-subtitle">From farm to table, we supply a wide range of fresh produce, eggs, ice and premium quality animal meat. Sourced responsibly. Delivered reliably.</p>
+            </div>
+
+            <div class="divisions-section">
+                <p class="divisions-tag">🌱 Agriculture Division</p>
+                <h3 class="divisions-title">Agriculture Products & Services</h3>
+                <div style="height: 4px; width: 80px; background: linear-gradient(90deg, var(--green), var(--gold)); border-radius: 2px; margin-bottom: 48px;"></div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/fresh fruits supply.jpg" alt="Fresh Fruits Supply" style="object-position: center 30%;">
+                        </div>
+                        <div class="service-content">
+                            <h4>Fresh Fruits Supply</h4>
+                            <p>We supply a wide variety of fresh, high-quality fruits sourced from trusted farms and growers. Seasonal and year-round options available.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">🌾 Farm Fresh</span>
+                                <span class="service-tag">✓ Quality Assured</span>
+                                <span class="service-tag">🚚 Timely Delivery</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/Ice Supply.jpg" alt="ICE Supply" style="object-position: center;">
+                        </div>
+                        <div class="service-content">
+                            <h4>ICE Supply</h4>
+                            <p>We supply premium quality ice products including block ice, cube ice and crushed ice for commercial, industrial and residential use. Clean, pure and consistently fresh.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">❄️ Pure & Clean</span>
+                                <span class="service-tag">🧊 Various Sizes</span>
+                                <span class="service-tag">🚚 Fast Delivery</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/eggs suppply.jpg" alt="Eggs Supply" style="object-position: center 40%;">
+                        </div>
+                        <div class="service-content">
+                            <h4>Eggs Supply</h4>
+                            <p>We provide farm-fresh eggs with strict quality control to ensure freshness, nutrition and safety. Perfect for retail and food service industries.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">🌾 Farm Fresh</span>
+                                <span class="service-tag">🧼 Hygienic & Safe</span>
+                                <span class="service-tag">📦 Reliable Supply</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/animal meat supply.jpg" alt="Animal Meat Supply" style="object-position: center 30%;">
+                        </div>
+                        <div class="service-content">
+                            <h4>Animal Meat Supply</h4>
+                            <p>We supply premium quality meat from healthy animals—goats, cows, sheep and pigs—processed to the highest standards of hygiene and quality.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">🐄 Healthy Animals</span>
+                                <span class="service-tag">✓ Quality Meat</span>
+                                <span class="service-tag">❄️ Cold Chain</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <p class="divisions-tag">🚚 Logistics Division</p>
+                <h3 class="divisions-title">Logistics & Transportation Services</h3>
+                <div style="height: 4px; width: 80px; background: linear-gradient(90deg, var(--navy), var(--gold)); border-radius: 2px; margin-bottom: 48px;"></div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/logistics and transportation.jpg" alt="Logistics & Transportation" style="object-position: center 35%;">
+                        </div>
+                        <div class="service-content">
+                            <h4>Logistics & Transportation</h4>
+                            <p>Reliable transport across local and global routes. Our modern fleet ensures your goods arrive safely and on time, every time.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">🚚 Modern Fleet</span>
+                                <span class="service-tag">🗺️ Local & Global</span>
+                                <span class="service-tag">⏰ On-Time</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/toilet paper supply.jpg" alt="Toilet Paper Supply" style="object-position: center;">
+                        </div>
+                        <div class="service-content">
+                            <h4>Toilet Paper Supply</h4>
+                            <p>Reliable supply of premium quality toilet paper and tissue products. Soft, absorbent and hygienic—available in various pack sizes for retail, commercial and industrial needs.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">🧻 Soft & Absorbent</span>
+                                <span class="service-tag">✨ Hygienic Quality</span>
+                                <span class="service-tag">📦 Bulk Available</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/supply chain management.jpg" alt="Supply Chain Management" style="object-position: center 25%;">
+                        </div>
+                        <div class="service-content">
+                            <h4>Supply Chain Management</h4>
+                            <p>End-to-end supply chain visibility and optimization. We streamline your operations from sourcing to final delivery.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">📈 Optimization</span>
+                                <span class="service-tag">👁️ Full Visibility</span>
+                                <span class="service-tag">⚡ Efficiency</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/imports and exports services.jpg" alt="Import & Export Services" style="object-position: center;">
+                        </div>
+                        <div class="service-content">
+                            <h4>Import & Export Services</h4>
+                            <p>Connecting markets and expanding global opportunities. Full customs handling and documentation for international trade.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">🌐 Global Trade</span>
+                                <span class="service-tag">📋 Customs Support</span>
+                                <span class="service-tag">📑 Documentation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag" style="color: var(--gold);">Our Impact In Numbers</p>
+                <h3 class="section-title" style="color: #fff;">Driving Results That Matter</h3>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Years of Experience</div>
+                    <div class="stat-desc">Decades of expertise in agriculture and logistics.</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Countries Served</div>
+                    <div class="stat-desc">Global reach with local understanding.</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Dedicated Employees</div>
+                    <div class="stat-desc">A strong team powering our success.</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Successful Deliveries</div>
+                    <div class="stat-desc">On-time, every time, across the globe.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="AEP Group Logo" onerror="this.style.display='none'">
+                    </div>
+                    <p>A diversified holding company uniting agriculture and logistics to build a stronger, more sustainable future.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">X</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>📧 Agrieconomicpartners@gmail.com</p>
+                    <p>📞 065 810 1567</p>
+                    <p>📍 [PLACEHOLDER: Physical Address]</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="services.html">Services</a>
+                    <a href="industries.html">Industries</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Divisions</h4>
+                    <a href="services.html">🌱 Agriculture</a>
+                    <a href="services.html">🚚 Logistics</a>
+                    <a href="careers.html">Careers</a>
+                    <a href="news.html">News</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 AEP Group Holding Company. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

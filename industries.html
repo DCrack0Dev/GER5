@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industries - AEP Group</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .industries-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+        @media (min-width: 768px) { .industries-grid { grid-template-columns: 1fr 1fr; } }
+        @media (min-width: 1024px) { .industries-grid { grid-template-columns: 1fr 1fr 1fr; } }
+        .industry-card { border: 1px solid #e5e7eb; border-radius: 16px; overflow: hidden; transition: all 0.3s; background: #fff; display: flex; flex-direction: column; }
+        .industry-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: var(--gold); }
+        .industry-image { height: 220px; overflow: hidden; background: #f3f4f6; }
+        .industry-image img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.35s ease; }
+        .industry-card:hover .industry-image img { transform: scale(1.03); }
+        .industry-content { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+        .industry-content h4 { font-size: 20px; margin-bottom: 12px; color: var(--navy); }
+        .industry-content p { color: #6b7280; line-height: 1.7; margin-bottom: 20px; flex: 1; }
+        .industry-link { color: var(--navy); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: all 0.3s; }
+        .industry-link:hover { color: var(--gold); gap: 10px; }
+        .features-strip { background: linear-gradient(180deg, #fafaf7 0%, #fff 100%); }
+        .features-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+        @media (min-width: 768px) { .features-grid { grid-template-columns: 1fr 1fr 1fr 1fr; } }
+        .feature-item { text-align: center; padding: 24px; }
+        .feature-icon { width: 64px; height: 64px; margin: 0 auto 16px; background: linear-gradient(135deg, var(--green) 0%, var(--navy) 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 28px; }
+        .feature-item h5 { font-size: 16px; margin-bottom: 8px; color: var(--navy); }
+        .feature-item p { font-size: 14px; color: #6b7280; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo-section">
+                <a href="index.html"><img src="images/logo.png" alt="AEP Group Logo" onerror="this.style.display='none'"></a>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="industries.html">Industries</a>
+                <a href="news.html">News</a>
+                <a href="careers.html">Careers</a>
+                <a href="contact.html" class="cta-btn">GET A QUOTE →</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <p class="page-header-tag">Industries Served</p>
+            <h2>Serving Key Industries Worldwide</h2>
+            <p>Tailored agriculture and logistics solutions for every sector</p>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag">Our Industries</p>
+                <h3 class="section-title">Industries We Serve</h3>
+                <p class="section-subtitle">From agriculture to retail, we provide integrated solutions that drive value across diverse industries.</p>
+            </div>
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <img src="images/agriculture and farming.jpg" alt="Agriculture & Farming" style="object-position: center 30%;">
+                    </div>
+                    <div class="industry-content">
+                        <h4>Agriculture & Farming</h4>
+                        <p>Supporting modern farming and food production with reliable supply chain and logistics solutions tailored to the agricultural sector.</p>
+                        <a href="contact.html" class="industry-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <img src="images/food and beveragesa.jpg" alt="Food & Beverages" style="object-position: center;">
+                    </div>
+                    <div class="industry-content">
+                        <h4>Food & Beverages</h4>
+                        <p>Supplying fresh, quality products worldwide. Cold chain logistics and reliable distribution for food and beverage manufacturers.</p>
+                        <a href="contact.html" class="industry-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <img src="images/retail and distribution.jpg" alt="Retail & Distribution" style="object-position: center top;">
+                    </div>
+                    <div class="industry-content">
+                        <h4>Retail & Distribution</h4>
+                        <p>Efficient distribution for retail success. Timely delivery and inventory management for supermarkets and retail chains.</p>
+                        <a href="contact.html" class="industry-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <img src="images/mufacturing.jpg" alt="Manufacturing" style="object-position: center 25%;">
+                    </div>
+                    <div class="industry-content">
+                        <h4>Manufacturing</h4>
+                        <p>Reliable supply chain solutions for industry. Raw material sourcing and finished goods distribution for manufacturing clients.</p>
+                        <a href="contact.html" class="industry-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <img src="images/imports and exports services.jpg" alt="Import & Export" style="object-position: center;">
+                    </div>
+                    <div class="industry-content">
+                        <h4>Import & Export</h4>
+                        <p>Seamless global trade and market access. Full customs documentation and international freight handling for cross-border commerce.</p>
+                        <a href="contact.html" class="industry-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <img src="images/hospitality.jpg" alt="Hospitality" style="object-position: center 40%;">
+                    </div>
+                    <div class="industry-content">
+                        <h4>Hospitality & Catering</h4>
+                        <p>[PLACEHOLDER: Describe hospitality industry solutions. Include food supply for hotels, restaurants, catering companies, etc.]</p>
+                        <a href="contact.html" class="industry-link">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-strip">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag">Why Choose Us</p>
+                <h3 class="section-title">Our Commitment to Every Industry</h3>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🏅</div>
+                    <h5>Quality Assured</h5>
+                    <p>Strict quality checks at every stage of our process.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌱</div>
+                    <h5>Sustainable Sourcing</h5>
+                    <p>Responsible farming and ethical business practices.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🚚</div>
+                    <h5>Reliable Delivery</h5>
+                    <p>On-time delivery you can count on, every time.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🤝</div>
+                    <h5>Customer Focused</h5>
+                    <p>Your satisfaction is our number one priority.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="AEP Group Logo" onerror="this.style.display='none'">
+                    </div>
+                    <p>A diversified holding company uniting agriculture and logistics to build a stronger, more sustainable future.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">X</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>📧 Agrieconomicpartners@gmail.com</p>
+                    <p>📞 065 810 1567</p>
+                    <p>📍 [PLACEHOLDER: Physical Address]</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="services.html">Services</a>
+                    <a href="industries.html">Industries</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Divisions</h4>
+                    <a href="services.html">🌱 Agriculture</a>
+                    <a href="services.html">🚚 Logistics</a>
+                    <a href="careers.html">Careers</a>
+                    <a href="news.html">News</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 AEP Group Holding Company. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

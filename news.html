@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Updates - AEP Group</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .news-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+        @media (min-width: 768px) { .news-grid { grid-template-columns: 1fr 1fr; } }
+        @media (min-width: 1024px) { .news-grid { grid-template-columns: 1fr 1fr 1fr; } }
+        .news-card { border: 1px solid #e5e7eb; border-radius: 16px; overflow: hidden; transition: all 0.3s; background: #fff; display: flex; flex-direction: column; }
+        .news-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: var(--gold); }
+        .news-image { height: 220px; overflow: hidden; background: #f3f4f6; }
+        .news-image img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.35s ease; }
+        .news-card:hover .news-image img { transform: scale(1.03); }
+        .news-content { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+        .news-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 12px; }
+        .news-category { padding: 4px 12px; background: linear-gradient(135deg, rgba(212,167,58,0.15), rgba(29,74,44,0.1)); color: var(--navy); border-radius: 20px; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+        .news-date { font-size: 13px; color: #9ca3af; }
+        .news-content h4 { font-size: 20px; margin-bottom: 12px; color: var(--navy); line-height: 1.4; }
+        .news-content p { color: #6b7280; line-height: 1.7; margin-bottom: 20px; flex: 1; }
+        .news-link { color: var(--green); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: all 0.3s; }
+        .news-link:hover { color: var(--gold); gap: 10px; }
+        .load-more { text-align: center; margin-top: 56px; }
+        .newsletter-section-alt { background: linear-gradient(180deg, #fafaf7 0%, #fff 100%); }
+        .newsletter-box { max-width: 700px; margin: 0 auto; text-align: center; padding: 48px; background: linear-gradient(135deg, var(--green), var(--navy)); border-radius: 20px; color: #fff; position: relative; overflow: hidden; }
+        .newsletter-box::before { content: ''; position: absolute; right: -100px; top: -100px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(212,167,58,0.2), transparent); }
+        .newsletter-content { position: relative; z-index: 1; }
+        .newsletter-content h3 { font-size: 28px; margin-bottom: 12px; }
+        .newsletter-content p { opacity: 0.9; margin-bottom: 28px; }
+        .newsletter-form { display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+        .newsletter-form input { flex: 1; min-width: 250px; padding: 14px 20px; border-radius: 10px; border: none; font-size: 15px; }
+        .newsletter-form input:focus { outline: none; box-shadow: 0 0 0 3px rgba(212,167,58,0.5); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo-section">
+                <a href="index.html"><img src="images/logo.png" alt="AEP Group Logo" onerror="this.style.display='none'"></a>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="industries.html">Industries</a>
+                <a href="news.html">News</a>
+                <a href="careers.html">Careers</a>
+                <a href="contact.html" class="cta-btn">GET A QUOTE →</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <p class="page-header-tag">Stay Informed</p>
+            <h2>News & Updates</h2>
+            <p>Latest updates, announcements, and insights from AEP Group</p>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag">Latest Articles</p>
+                <h3 class="section-title">From Our Blog</h3>
+                <p class="section-subtitle">Stay up to date with the latest news, industry insights, and company announcements.</p>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="images/agriculture and farming.jpg" alt="Agriculture and farming update" style="object-position: center 35%;">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">Agriculture</span>
+                            <span class="news-date">June 15, 2025</span>
+                        </div>
+                        <h4>Modern Farming Growth Update</h4>
+                        <p>A look at how stronger farm operations and dependable sourcing continue to support productivity across the agriculture sector.</p>
+                        <a href="#" class="news-link">Read Article →</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="images/supply chain management1.jpg" alt="Supply chain management update" style="object-position: center 30%;">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">Logistics</span>
+                            <span class="news-date">June 10, 2025</span>
+                        </div>
+                        <h4>Supply Chain Efficiency Improvements</h4>
+                        <p>How better coordination, tracking, and planning are improving delivery performance across connected logistics operations.</p>
+                        <a href="#" class="news-link">Read Article →</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="images/aep.jpg" alt="AEP company update" style="object-position: center;">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">Company</span>
+                            <span class="news-date">June 5, 2025</span>
+                        </div>
+                        <h4>AEP Group Company Milestone</h4>
+                        <p>An update on AEP Group's continued growth across agriculture and logistics, with a focus on service quality and expansion.</p>
+                        <a href="#" class="news-link">Read Article →</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="images/fresh fruits and vegetables supply.jpg" alt="Fresh produce update" style="object-position: center 40%;">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">Agriculture</span>
+                            <span class="news-date">May 28, 2025</span>
+                        </div>
+                        <h4>Fresh Produce Supply Outlook</h4>
+                        <p>Seasonal produce availability remains strong, supported by trusted growers and a reliable distribution network.</p>
+                        <a href="#" class="news-link">Read Article →</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="images/logistics and transportation.jpg" alt="Logistics and transportation update" style="object-position: center 40%;">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">Logistics</span>
+                            <span class="news-date">May 20, 2025</span>
+                        </div>
+                        <h4>Transport Network Expansion</h4>
+                        <p>Expanded routing and delivery coordination are helping move goods more efficiently across local and regional markets.</p>
+                        <a href="#" class="news-link">Read Article →</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="images/retail and distribution.jpg" alt="Retail and distribution partnership update" style="object-position: center top;">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">Partnership</span>
+                            <span class="news-date">May 15, 2025</span>
+                        </div>
+                        <h4>Retail Distribution Partnership News</h4>
+                        <p>New collaboration efforts are strengthening distribution reach and helping products get to market faster.</p>
+                        <a href="#" class="news-link">Read Article →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="load-more">
+                <button class="btn btn-secondary" style="border: 2px solid var(--navy); color: var(--navy);">Load More Articles</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="news-section-alt">
+        <div class="container">
+            <div class="newsletter-box">
+                <div class="newsletter-content">
+                    <h3>📬 Stay Updated</h3>
+                    <p>Subscribe to our newsletter for the latest news, industry insights, and exclusive offers.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('[PLACEHOLDER] Newsletter signup!');">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="AEP Group Logo" onerror="this.style.display='none'">
+                    </div>
+                    <p>A diversified holding company uniting agriculture and logistics to build a stronger, more sustainable future.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">X</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>📧 Agrieconomicpartners@gmail.com</p>
+                    <p>📞 065 810 1567</p>
+                    <p>📍 [PLACEHOLDER: Physical Address]</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="services.html">Services</a>
+                    <a href="industries.html">Industries</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Divisions</h4>
+                    <a href="services.html">🌱 Agriculture</a>
+                    <a href="services.html">🚚 Logistics</a>
+                    <a href="careers.html">Careers</a>
+                    <a href="news.html">News</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 AEP Group Holding Company. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

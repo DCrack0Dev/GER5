@@ -56,15 +56,23 @@
         <div class="container header-content">
             <div class="logo-section">
                 <a href="index.html"><img src="images/logo.png" alt="AEP Group Logo" onerror="this.style.display='none'"></a>
+                <div class="logo-text">
+                    <h1><span style="color:var(--green);">A</span><span style="color:var(--gold);">E</span><span style="color:var(--navy);">P</span> GROUP</h1>
+                    <p>HOLDING COMPANY</p>
+                </div>
             </div>
-            <nav>
+            <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </button>
+            <div class="nav-wrap" aria-hidden="true"></div>
+            <nav id="primary-nav">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
                 <a href="industries.html">Industries</a>
                 <a href="news.html">News</a>
                 <a href="careers.html">Careers</a>
-                <a href="contact.html" class="cta-btn">GET A QUOTE →</a>
+                <a href="contact.html" class="active cta-btn">GET A QUOTE →</a>
             </nav>
         </div>
     </header>
@@ -241,6 +249,23 @@
             alert('[PLACEHOLDER: Form submission handler - connect to email/backend here]\n\nForm submitted successfully! We will contact you shortly.');
             this.reset();
         });
+    </script>
+    <script>
+    (function(){
+      var btn=document.querySelector('.nav-toggle');
+      var wrap=document.querySelector('.nav-wrap');
+      var nav=document.getElementById('primary-nav');
+      if(!btn||!nav)return;
+      function close(){btn.setAttribute('aria-expanded','false');wrap.classList.remove('open');nav.classList.remove('open');wrap.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+      function open(){btn.setAttribute('aria-expanded','true');wrap.classList.add('open');nav.classList.add('open');wrap.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+      btn.addEventListener('click',function(){var e=btn.getAttribute('aria-expanded')==='true';if(e)close();else open();});
+      wrap.addEventListener('click',close);
+      nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(nav.classList.contains('open'))close();});});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open'))close();});
+      var mq=window.matchMedia('(min-width: 960px)');
+      function onChange(){if(mq.matches)close();}
+      if(mq.addEventListener)mq.addEventListener('change',onChange);else if(mq.addListener)mq.addListener(onChange);
+    })();
     </script>
 </body>
 </html>
